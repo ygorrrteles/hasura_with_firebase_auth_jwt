@@ -10,7 +10,18 @@ void main() {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      home: Teste(),
     ),
   );
+}
+
+class Teste extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child: RaisedButton(
+        onPressed: () => Get.to(HomePage()),
+      ),),
+    );
+  }
 }

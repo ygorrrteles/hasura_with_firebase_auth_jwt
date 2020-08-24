@@ -13,7 +13,6 @@ import 'package:hasura_with_firebase_auth_jwt/pages/widget/custom_combobox_widge
 class AdicionarProduto extends StatelessWidget {
 
   ProdutoController produtoController = ProdutoController.to;
-  StreamSubscription _streamSubscription;
   TextEditingController descricao = TextEditingController();
   TextEditingController valor = TextEditingController();
   int categoriaId;

@@ -16,6 +16,7 @@ dependencies:
   hasura_connect: ^1.2.2+1
   find_dropdown: ^0.2.0
   get:
+  get_storage:
 
 dev_dependencies:
   flutter_test:
