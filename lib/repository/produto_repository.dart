@@ -8,7 +8,7 @@ import 'package:hasura_with_firebase_auth_jwt/repository/hasura_settings.dart';
 import 'package:hasura_with_firebase_auth_jwt/repository/queries.dart';
 
 class ProdutoRepository {
-  final HasuraSettings hasuraSettings = Get.put<HasuraSettings>(HasuraSettings());
+  final hasuraSettings = Get.find<HasuraSettings>();
 
   static ProdutoRepository get to => Get.find();
 

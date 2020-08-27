@@ -5,7 +5,7 @@ import 'package:hasura_with_firebase_auth_jwt/pages/adicionar_produto_page.dart'
 import 'package:hasura_with_firebase_auth_jwt/repository/produto_repository.dart';
 
 class ProdutoController extends GetxController{
-  final ProdutoRepository produtoRepository = Get.put<ProdutoRepository>(ProdutoRepository());
+  final produtoRepository = Get.find<ProdutoRepository>();
 
   static ProdutoController get to => Get.find();
 
