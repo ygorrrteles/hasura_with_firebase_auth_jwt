@@ -9,6 +9,7 @@ class TodoController extends GetxController {
 
   final _todoList = <Rx<TodoModel>>[].obs;
   List<Rx<TodoModel>> get lista => _todoList.value;
+  int get checkeds => _todoList.value.where((element) => element.value.checked == true).length;
 
   void addItem() {
     final item = TodoModel('blah', false);
@@ -23,6 +24,10 @@ class TodoController extends GetxController {
 
   void removeItem(Rx<TodoModel> model){
     _todoList.remove(model);
+  }
+
+  void removeAllChecked(){
+    _todoList.removeWhere((element) => element.value.checked == true);
   }
 
   bool toggleCheck(Rx<TodoModel> model, bool value) {

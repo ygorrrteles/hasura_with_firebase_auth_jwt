@@ -8,8 +8,15 @@ class TodoPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('todos'),
+        title: Obx(() =>
+            Text('todos ${TodoController.to.checkeds}')),
         actions: [
+          IconButton(
+            icon: Icon(Icons.restore_from_trash),
+            onPressed: () {
+              TodoController.to.removeAllChecked();
+            },
+          ),
           IconButton(
             icon: Icon(Icons.add),
             onPressed: () {

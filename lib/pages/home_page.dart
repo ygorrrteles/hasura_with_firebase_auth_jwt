@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
           ),
           IconButton(
             icon: Icon(Icons.delete),
-            onPressed: () => Get.to(TodoPage(), binding: TodoBingins()),
+            onPressed: () => Get.to(TodoPage(), binding: TodoBingins(),transition: Transition.cupertino),
           )
         ],
     ),
