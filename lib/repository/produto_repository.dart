@@ -18,6 +18,12 @@ class ProdutoRepository {
     return snapshot.map((item) => Produto.fromJsonList(item["data"]["produto"]));
   }
 
+  Future<List<Produto>> getProdutosPaginados(int offset) async {
+    var query = ProdutoQueries.LISTA_PAGINADA;
+    var snapshot = await hasuraSettings.connect.query(query, variables: {"offset" : offset});
+    return Produto.fromJsonListSimples(snapshot["data"]["produto"]);
+  }
+
   Future<TipoProdutoCategoriaDto> getTipoProdutoCategoria() async {
     var query = ProdutoQueries.GET_TIPOCATEGORIAPRODUTO;
     var snapshot = await hasuraSettings.connect.query(query);

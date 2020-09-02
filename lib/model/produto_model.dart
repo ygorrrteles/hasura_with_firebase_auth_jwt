@@ -42,6 +42,11 @@ class Produto {
     categoriaProduto: CategoriaProdutoModel.fromMap(json["categoria_produto"]),
   );
 
+  factory Produto.fromMapSimples(Map<String, dynamic> json) => Produto(
+    id: json["id"],
+    nome: json["nome"],
+  );
+
   Map<String, dynamic> toMap() => {
     "id": id,
     "nome": nome,
@@ -53,6 +58,11 @@ class Produto {
   static List<Produto> fromJsonList(List list) {
     if(list == null) return null;
     return list.map<Produto>((item) => Produto.fromMap(item)).toList();
+  }
+
+  static List<Produto> fromJsonListSimples(List list) {
+    if(list == null) return null;
+    return list.map<Produto>((item) => Produto.fromMapSimples(item)).toList();
   }
 }
 

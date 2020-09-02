@@ -73,19 +73,4 @@ class TodoPage extends StatelessWidget {
       ),
     );
   }
-
-  Widget _listTile(Rx<TodoModel> model) {
-    return ListTile(
-      title: Text(model.value.name),
-      trailing: Obx(
-        () => Checkbox(
-          onChanged: (value) {
-            TodoController.to.toggleCheck(model, value);
-            print(model.value.checked);
-          },
-          value: model.value.checked,
-        ),
-      ),
-    );
-  }
 }

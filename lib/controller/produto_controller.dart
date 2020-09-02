@@ -14,16 +14,16 @@ class ProdutoController extends GetxController{
   int get totalString => list.length;
   Produto get ultimoProduto => list.last;
 
+  final RxList<Produto> _listPaginada = RxList<Produto>();
+  List<Produto> get listPaginada => _listPaginada?.value ?? new List<Produto>();
+
   Future<TipoProdutoCategoriaDto> getAllProdutosTipoECategoria() async => await  produtoRepository.getTipoProdutoCategoria();
   Future<void> adicionarProduto(Produto produto) async => await  produtoRepository.adicionarProduto(produto);
 
-  Worker _ever;
-
   @override
   void onInit() {
-    print("iniciando Produto controller");
     _list.bindStream(produtoRepository.getProdutos());
-    _ever = ever(_list, (valor) {
+   ever(_list, (valor) {
       print(valor.first.nome);
       if(valor.first.nome == "frente"){
         Get.to(AdicionarProduto());
@@ -33,11 +33,5 @@ class ProdutoController extends GetxController{
       }
     });
     super.onInit();
-  }
-
-  @override
-  void onClose() {
-    _ever.dispose();
-    super.onClose();
   }
 }

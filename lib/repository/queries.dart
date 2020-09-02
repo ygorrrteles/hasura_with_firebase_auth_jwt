@@ -38,5 +38,16 @@ mutation adicionarProduto(\$valor: float8, \$tipo_produto_id: Int, \$nome: Strin
   }
 }
 ''';
+
+  static final String LISTA_PAGINADA = ''' 
+query getProdutosPaginados(\$offset: Int) {
+  produto(limit: 10, offset: \$offset, order_by: {id: desc}) {
+    nome
+    id
+  }
+}
+''';
+
+
 }
 
